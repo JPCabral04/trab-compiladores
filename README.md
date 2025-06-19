@@ -1,8 +1,8 @@
 # **Projeto de Compiladores - Analisador Léxico e Sintático**
 
-[cite_start]Este projeto consiste na implementação de um analisador léxico e um analisador sintático para uma linguagem de programação simplificada, como parte dos requisitos da disciplina ECOM06A - Compiladores da Universidade Federal de Itajubá[cite: 1].
+Este projeto consiste na implementação de um analisador léxico e um analisador sintático para uma linguagem de programação simplificada, como parte dos requisitos da disciplina ECOM06A - Compiladores da Universidade Federal de Itajubá.
 
-[cite_start]O analisador léxico foi desenvolvido com a ferramenta **Flex** e o analisador sintático com a ferramenta **Bison**[cite: 5]. [cite_start]O objetivo é processar um código-fonte escrito na linguagem proposta e gerar um arquivo com o reconhecimento de todos os tokens e símbolos encontrados[cite: 12, 16].
+O analisador léxico foi desenvolvido com a ferramenta **Flex** e o analisador sintático com a ferramenta **Bison**. O objetivo é processar um código-fonte escrito na linguagem proposta e gerar um arquivo com o reconhecimento de todos os tokens e símbolos encontrados.
 
 ## **Autores**
 
@@ -14,10 +14,10 @@
 
 O projeto está organizado com os seguintes arquivos principais:
 
-* `scanner.l`: Arquivo de definição do analisador léxico para o **Flex**. [cite_start]Contém as expressões regulares que definem os tokens da linguagem (palavras reservadas, identificadores, operadores, etc.)[cite: 6].
-* `parser.y`: Arquivo de definição do analisador sintático para o **Bison**. [cite_start]Contém a gramática formal da linguagem, especificando as regras de produção para as estruturas sintáticas (declarações, comandos condicionais, laços, etc.)[cite: 7].
+* `scanner.l`: Arquivo de definição do analisador léxico para o **Flex**. Contém as expressões regulares que definem os tokens da linguagem (palavras reservadas, identificadores, operadores, etc.).
+* `parser.y`: Arquivo de definição do analisador sintático para o **Bison**. Contém a gramática formal da linguagem, especificando as regras de produção para as estruturas sintáticas (declarações, comandos condicionais, laços, etc.).
 * `Makefile`: Arquivo de automação que gerencia o processo de compilação, orquestrando o Flex, o Bison e o compilador GCC para gerar o executável final.
-* [cite_start]`exemplos/`: Diretório contendo três programas de exemplo (`exemplo1.lang`, `exemplo2.lang`, `exemplo3.lang`) que demonstram as funcionalidades da linguagem, como operações de entrada/saída, condicionais e laços de repetição[cite: 9].
+* `exemplos/`: Diretório contendo três programas de exemplo (`exemplo1.lang`, `exemplo2.lang`, `exemplo3.lang`) que demonstram as funcionalidades da linguagem, como operações de entrada/saída, condicionais e laços de repetição.
 
 ## **1. Pré-requisitos e Instalação (Ambiente Windows)**
 
@@ -66,7 +66,7 @@ Após a compilação, o programa `compilador.exe` estará disponível no diretó
 
 ### **Analisando um Arquivo de Exemplo**
 
-[cite_start]Para executar o analisador em um dos arquivos de exemplo e gerar o arquivo de reconhecimento de tokens (conforme exigido pelo trabalho [cite: 12, 16]), use o seguinte formato:
+Para executar o analisador em um dos arquivos de exemplo e gerar o arquivo de reconhecimento de tokens (conforme exigido pelo trabalho), use o seguinte formato:
 
 ```bash
 ./compilador.exe <caminho_do_arquivo_de_entrada> > <nome_do_arquivo_de_saida>
@@ -85,7 +85,7 @@ Após a compilação, o programa `compilador.exe` estará disponível no diretó
 ./compilador.exe exemplos/exemplo3.lang > reconhecimento_exemplo3.txt
 ```
 
-[cite_start]Ao final de cada comando, um arquivo `.txt` será criado no diretório, contendo a lista sequencial de todos os tokens que foram reconhecidos no programa de exemplo correspondente[cite: 13].
+Ao final de cada comando, um arquivo `.txt` será criado no diretório, contendo a lista sequencial de todos os tokens que foram reconhecidos no programa de exemplo correspondente.
 
 ## **4. Limpando os Arquivos Gerados**
 
