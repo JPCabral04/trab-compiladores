@@ -6,18 +6,30 @@ O analisador léxico foi desenvolvido com a ferramenta **Flex** e o analisador s
 
 ## **Autores**
 
-* Bruno Raiado Bianchi - 2023012338
-* João Pedro Quintero Cabral - 2023001479
-* Rodrigo Pereira Dos Santos - 2023012383
+- Bruno Raiado Bianchi - 2023012338
+- João Pedro Quintero Cabral - 2023001479
+- Rodrigo Pereira Dos Santos - 2023012383
 
-## **Estrutura dos Arquivos**
+## **Estrutura de Arquivos do Projeto**
 
-O projeto está organizado com os seguintes arquivos principais:
+O projeto está organizado com a seguinte estrutura de arquivos e diretórios:
 
-* `scanner.l`: Arquivo de definição do analisador léxico para o **Flex**. Contém as expressões regulares que definem os tokens da linguagem (palavras reservadas, identificadores, operadores, etc.).
-* `parser.y`: Arquivo de definição do analisador sintático para o **Bison**. Contém a gramática formal da linguagem, especificando as regras de produção para as estruturas sintáticas (declarações, comandos condicionais, laços, etc.).
-* `Makefile`: Arquivo de automação que gerencia o processo de compilação, orquestrando o Flex, o Bison e o compilador GCC para gerar o executável final.
-* `exemplos/`: Diretório contendo três programas de exemplo (`exemplo1.lang`, `exemplo2.lang`, `exemplo3.lang`) que demonstram as funcionalidades da linguagem, como operações de entrada/saída, condicionais e laços de repetição.
+```
+.
+├── exemplos/
+│   ├── exemplo1.lang
+│   ├── exemplo2.lang
+│   └── exemplo3.lang
+├── Makefile
+├── parser.y
+├── README.md
+└── scanner.l
+```
+
+- **`scanner.l`**: Arquivo de definição do analisador léxico para o **Flex**. Contém as expressões regulares que definem os tokens da linguagem (palavras reservadas, identificadores, operadores, etc.).
+- **`parser.y`**: Arquivo de definição do analisador sintático para o **Bison**. Contém a gramática formal da linguagem, especificando as regras de produção para as estruturas sintáticas.
+- **`Makefile`**: Arquivo de automação que gerencia o processo de compilação, orquestrando o Flex, o Bison e o compilador GCC para gerar o executável final.
+- **`exemplos/`**: Diretório contendo os programas de exemplo que demonstram as funcionalidades da linguagem.
 
 ## **1. Pré-requisitos e Instalação (Ambiente Windows)**
 
@@ -33,7 +45,7 @@ O MSYS2 fornecerá um ambiente de terminal e um gerenciador de pacotes (`pacman`
 ### **Passo 2: Instalar as Ferramentas de Compilação**
 
 1.  Após a instalação, abra o terminal **"MSYS2 MINGW64"** a partir do Menu Iniciar do Windows.
-2.  Dentro deste terminal, execute o comando abaixo para instalar o compilador GCC, o Flex, o Bison e outras ferramentas essenciais. O comando só instalará o que for necessário.
+2.  Dentro deste terminal, execute o comando abaixo para instalar o compilador GCC, o Flex, o Bison e outras ferramentas essenciais.
     ```bash
     pacman -S --needed base-devel mingw-w64-x86_64-toolchain flex bison
     ```
@@ -55,10 +67,7 @@ O `Makefile` incluído no projeto automatiza todo o processo de compilação.
     ```bash
     make
     ```
-4.  Este comando irá:
-    * Executar o **Bison** em `parser.y` para gerar `parser.tab.c` e `parser.tab.h`.
-    * Executar o **Flex** em `scanner.l` para gerar `lex.yy.c`.
-    * Compilar todos os arquivos `.c` gerados com o **GCC** para criar o executável final, `compilador.exe`.
+4.  Este comando irá executar o Flex e o Bison e, em seguida, compilar o código gerado para criar o executável final, `compilador.exe`.
 
 ## **3. Execução e Geração da Saída**
 

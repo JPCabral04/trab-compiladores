@@ -29,9 +29,9 @@ void yyerror(const char *s);
 %token DOIS_PONTOS PONTO_E_VIRGULA PARENTESES_ESQ PARENTESES_DIR INICIO_BLOCO FIM_BLOCO
 
 /* ================================================================== */
-/* Regras de precedência e associatividade*/
+/* Regras de precedência e associatividade                            */
 /* ================================================================== */
-/* A precedência aumenta de cima para baixo. Operadores na mesma     */
+/* A precedência aumenta de cima para baixo. Operadores na mesma      */
 /* linha têm a mesma precedência.                                     */
 /* %left significa associatividade à esquerda (ex: 5-3-2 é (5-3)-2)    */
 /* %right significa associatividade à direita (ex: 2**3**2 é 2**(3**2)) */
@@ -45,6 +45,8 @@ void yyerror(const char *s);
 %nonassoc NAO_LOGICO
 %token UMENOS   /* Token "fantasma" para o menos unário */
 
+/* Regra para resolver a ambiguidade do 'dangling else' */
+%nonassoc ELSE
 
 %start PROGRAM
 

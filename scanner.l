@@ -26,7 +26,7 @@ digito  [0-9]
 
 -?{digito}+         { printf("numero inteiro -> %s\n", yytext); yylval.ival = atoi(yytext); return INTEIRO; }
 -?{digito}+\.{digito}+ { printf("numero real -> %s\n", yytext); yylval.fval = atof(yytext); return FLOAT_LITERAL; }
-\'{letra}\'         { printf("caractere -> %s\n", yytext); yylval.sval = strdup(yytext); return CHAR_LITERAL; }
+\'[^\']\'         { printf("caractere -> %s\n", yytext); yylval.sval = strdup(yytext); return CHAR_LITERAL; }
 \"[^"]*\"         { printf("string -> %s\n", yytext); yylval.sval = strdup(yytext); return STRING_LITERAL; }
 
 "="                 { printf("atribuicao -> %s\n", yytext); return ATRIBUICAO; }
