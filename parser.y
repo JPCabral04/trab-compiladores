@@ -28,6 +28,24 @@ void yyerror(const char *s);
 %token SOMA SUB MULT DIV POT MOD
 %token DOIS_PONTOS PONTO_E_VIRGULA PARENTESES_ESQ PARENTESES_DIR INICIO_BLOCO FIM_BLOCO
 
+/* ================================================================== */
+/* Regras de precedência e associatividade*/
+/* ================================================================== */
+/* A precedência aumenta de cima para baixo. Operadores na mesma     */
+/* linha têm a mesma precedência.                                     */
+/* %left significa associatividade à esquerda (ex: 5-3-2 é (5-3)-2)    */
+/* %right significa associatividade à direita (ex: 2**3**2 é 2**(3**2)) */
+/* %nonassoc é para operadores que não se associam (ex: <, >)         */
+
+%nonassoc IGUAL_IGUAL MAIOR_IGUAL MENOR_IGUAL MAIOR MENOR DIFERENTE
+%left E_LOGICO OU_LOGICO
+%left SOMA SUB
+%left MULT DIV MOD
+%right POT      /* Potência é geralmente associativa à direita */
+%nonassoc NAO_LOGICO
+%token UMENOS   /* Token "fantasma" para o menos unário */
+
+
 %start PROGRAM
 
 %%
@@ -111,6 +129,8 @@ EXP:
     | EXP POT EXP
     | EXP MOD EXP
     | PARENTESES_ESQ EXP PARENTESES_DIR
+    | SUB EXP %prec UMENOS   /* Regra para o menos unário, ex: x = -5 */
+    | NAO_LOGICO EXP
     ;
 
 DADO:
