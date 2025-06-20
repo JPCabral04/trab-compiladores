@@ -1,7 +1,7 @@
 {
-  int a;
-  int b;
-  a = in(int);
-  b = 10 + a;
-  console(b);
+  a1 : int;
+  b1 : int;
+  a1 = in(int);
+  b1 = 10 + a1;
+  console(b1);
 }
